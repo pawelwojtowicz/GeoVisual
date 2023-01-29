@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as Leaflet from 'leaflet';
+import { MqttClientService } from '../services/mqtt-client.service';
 
 @Component({
   selector: 'app-map',
@@ -14,6 +15,11 @@ export class MapComponent {
     zoom: 12,
     center: new Leaflet.LatLng(45.50499, 10.73923)
   };
+
+  constructor( private client: MqttClientService)
+  {
+    
+  }
 }
 
 export const getMarkers = (): Leaflet.Marker[] => {
